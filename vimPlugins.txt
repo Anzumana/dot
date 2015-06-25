@@ -1,0 +1,9 @@
+YouCompleteMe
+headlights
+jshint2.vim
+nerdcommenter
+syntastic
+vim-colors-solarized
+vim-css-color
+vim-indent-guides
+vim-javascript
