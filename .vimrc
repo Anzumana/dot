@@ -4,7 +4,7 @@ set relativenumber
 set number
 filetype plugin indent on
 filetype plugin on
-set background=light
+set background=dark
 colorscheme solarized
 set guifont=Monaco:h14
 set cole=1
@@ -20,4 +20,4 @@ set cole=1
 set shiftwidth=2
 set tabstop=2
 let g:indent_guides_enable_on_vim_startup = 1
-let jshint2_save = 1
+"let jshint2_save = 1

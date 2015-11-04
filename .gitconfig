@@ -4,6 +4,7 @@
 	smudge = git media smudge %f
 [core]
 	excludesfile = /Users/anzumana/.gitignore_global
+	autocrlf = false
 [user]
 	email = taal@projektionisten.de
 	name = Anzumana
