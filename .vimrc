@@ -13,9 +13,13 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 "Plugin to make use python instead if vimscript
 "Plugin 'amoffat/snake'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'ap/vim-css-color'
 "Plugin 'mbadran/headlights'
@@ -24,6 +28,19 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'matchit.zip'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-h>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+"Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -57,18 +74,14 @@ filetype plugin indent on    " required
 
 " End of vimrc taken from Vundle Readme
 syntax on
-set relativenumber
-set number
-<<<<<<< HEAD
-filetype plugin indent on
-filetype plugin on
-=======
+"set relativenumber
+"set number
 "filetype plugin indent on
 "filetype plugin on
->>>>>>> 9eb7b094de0bdc2fa5560865a503fba1dd755fdd
 set background=dark
 colorscheme solarized
-set guifont=Monaco:h14
+"set guifont=Monaco:h14
+set guifont=Hack\ Regular:h14
 set cole=1
 "let g:javascript_conceal_function   = "ƒ"
 "let g:javascript_conceal_null       = "ø"
@@ -116,4 +129,9 @@ nnoremap <leader>tf :TernDef<cr>
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+set pastetoggle=<F2>
+map <C-n> :NERDTreeToggle<CR>
 
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_error_symbol = 'E'
