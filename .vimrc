@@ -13,6 +13,12 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rking/ag.vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'majutsushi/tagbar'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -31,15 +37,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'matchit.zip'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Anzumana/vim-numbertoggle'
+Plugin 'benmills/vimux'
 
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-h>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -73,9 +73,9 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " End of vimrc taken from Vundle Readme
-syntax on
-"set relativenumber
-"set number
+syntax on 
+set relativenumber
+set number
 "filetype plugin indent on
 "filetype plugin on
 set background=dark
@@ -129,9 +129,22 @@ nnoremap <leader>tf :TernDef<cr>
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-set pastetoggle=<F2>
-map <C-n> :NERDTreeToggle<CR>
+set pastetoggle=<F5>
+map <leader>n :NERDTreeToggle<CR>
+map <leader>s :UltiSnipsEdit<CR>
 
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_error_symbol = 'E'
+"You can configure ag.vim to always start searching from your project root instead of the cwd
+let g:ag_working_path_mode="r"
+let g:gist_open_browser_after_post = 1
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<leader>e"
+let g:UltiSnipsJumpForwardTrigger="<leader>f"
+let g:UltiSnipsJumpBackwardTrigger="<leader>b"
+"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+map <Leader>vp :VimuxPromptCommand<CR>
