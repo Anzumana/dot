@@ -5,9 +5,10 @@
 [core]
 	excludesfile = /Users/anzumana/.gitignore_global
 	autocrlf = false
+	editor = /usr/local/bin/vim
 [user]
-	email = taal@projektionisten.de
-	name = Anzumana
+	email = anzumana.taal@me.com
+	name = Anzumana Taal
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -16,3 +17,14 @@
 	trustExitCode = true
 [alias]
 	stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
+	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git diff-index --quiet HEAD; s=$?; [ $s != 0 ] && git stash save \"tmp stash from stash-rename\"; git stash apply $rev && shift && git stash save \"$@\" && [ $s != 0 ] && git stash pop stash@{1}; }; _"
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[github]
+	user = Anzumana

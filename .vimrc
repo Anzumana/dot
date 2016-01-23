@@ -38,7 +38,10 @@ Plugin 'matchit.zip'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Anzumana/vim-numbertoggle'
+Plugin 'othree/html5.vim'
+"if i should run terminal commands every often then this could make sense
 Plugin 'benmills/vimux'
+Plugin 'christoomey/vim-tmux-runner'
 
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
@@ -111,7 +114,7 @@ let mapleader = " "
 let g:tern_show_argument_hints='on_hold'
 let g:tern_show_signature_in_pum=1
 "runtime macros/matchit.vim
-set scrolloff=3
+set scrolloff=5
 set showcmd
 nnoremap <leader>td :TernDoc<cr>
 nnoremap <leader>tb :TernDocBrowse<cr>
@@ -131,7 +134,7 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set pastetoggle=<F5>
 map <leader>n :NERDTreeToggle<CR>
-map <leader>s :UltiSnipsEdit<CR>
+map <leader>es :UltiSnipsEdit<CR>
 
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
@@ -147,4 +150,26 @@ let g:UltiSnipsJumpBackwardTrigger="<leader>b"
 "
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-map <Leader>vp :VimuxPromptCommand<CR>
+nnoremap <leader>vs :vsp<CR>
+nnoremap <leader>hs :sp<CR>
+nnoremap <leader>ks :exit<CR>
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1
+			\}
+
+nnoremap <leader>fr :VtrFocusRunner<cr>
+nnoremap <leader>kr :VtrKillRunner<cr>
+nnoremap <leader>lr :VtrSendLinesToRunner<cr>
+nnoremap <leader>cdr :VtrSendCtrlD<cr>
+nnoremap <leader>ar :VtrAttachToPane<cr>
+nnoremap <leader>rr :VtrSendCommandToRunner<cr>
+nnoremap <leader>cr :VtrSendCommandToRunner!   
