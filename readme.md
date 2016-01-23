@@ -1,4 +1,3 @@
-Test add
 This is my dot File Repo
 Example Command to symlink our vimrc  
 
