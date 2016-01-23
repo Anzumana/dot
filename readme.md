@@ -14,12 +14,12 @@ due to a current Bug inside nvalt i am not synching that application
 #Vim
 Some of the vim Plugins i use. 
 For a more current list check my vimrc
-YouCompleteMe
-headlights
-jshint2.vim
-nerdcommenter
-syntastic
-vim-colors-solarized
-vim-css-color
-vim-indent-guides
-vim-javascript
+- YouCompleteMe
+- headlights
+- jshint2.vim
+- nerdcommenter
+- syntastic
+- vim-colors-solarized
+- vim-css-color
+- vim-indent-guides
+- vim-javascript
