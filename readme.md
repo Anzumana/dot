@@ -23,3 +23,9 @@ For a more current list check my vimrc
 - vim-css-color
 - vim-indent-guides
 - vim-javascript
+
+#oh my zsh
+my custom folder for oh my zsh is included as submodule in this repo
+If you want to do this too here is how:
+[wiki on Version Control of customizations for oh my zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#version-control-of-customizations)
+
