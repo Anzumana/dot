@@ -42,6 +42,8 @@ Plugin 'othree/html5.vim'
 "if i should run terminal commands every often then this could make sense
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-runner'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-colorscheme-switcher'
 
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
@@ -79,6 +81,7 @@ filetype plugin indent on    " required
 syntax on 
 set relativenumber
 set number
+set timeoutlen=150
 "filetype plugin indent on
 "filetype plugin on
 set background=dark
