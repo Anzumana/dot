@@ -168,6 +168,7 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog' : 1,
       \ 'mail' : 1
 			\}
+nnoremap <leader>cp :CtrlP<cr>
 
 nnoremap <leader>fr :VtrFocusRunner<cr>
 nnoremap <leader>kr :VtrKillRunner<cr>
