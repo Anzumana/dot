@@ -37,13 +37,13 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'matchit.zip'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Anzumana/vim-numbertoggle'
+"Plugin 'Anzumana/vim-numbertoggle'
 Plugin 'othree/html5.vim'
 "if i should run terminal commands every often then this could make sense
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-colorscheme-switcher'
+"Plugin 'xolox/vim-colorscheme-switcher'
 
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
@@ -64,7 +64,7 @@ Plugin 'xolox/vim-colorscheme-switcher'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+"filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -82,8 +82,9 @@ syntax on
 set relativenumber
 set number
 set timeoutlen=150
-"filetype plugin indent on
-"filetype plugin on
+filetype plugin on
+filetype plugin indent on
+set autoindent
 set background=dark
 colorscheme solarized
 "set guifont=Monaco:h14
@@ -117,7 +118,7 @@ let mapleader = " "
 let g:tern_show_argument_hints='on_hold'
 let g:tern_show_signature_in_pum=1
 "runtime macros/matchit.vim
-set scrolloff=5
+set scrolloff=45
 set showcmd
 nnoremap <leader>td :TernDoc<cr>
 nnoremap <leader>tb :TernDocBrowse<cr>
@@ -169,6 +170,7 @@ let g:ycm_filetype_blacklist = {
       \ 'mail' : 1
 			\}
 nnoremap <leader>cp :CtrlP<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
 
 nnoremap <leader>fr :VtrFocusRunner<cr>
 nnoremap <leader>kr :VtrKillRunner<cr>
@@ -177,3 +179,6 @@ nnoremap <leader>cdr :VtrSendCtrlD<cr>
 nnoremap <leader>ar :VtrAttachToPane<cr>
 nnoremap <leader>rr :VtrSendCommandToRunner<cr>
 nnoremap <leader>cr :VtrSendCommandToRunner!   
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+nnoremap <Leader>l :set cursorline! cursorcolumn!<CR>
