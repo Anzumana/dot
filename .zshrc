@@ -103,7 +103,6 @@ alias md="perl  ~/Dropbox/scripts/external/Markdown_1.0.1/Markdown.pl --html4tag
 alias nn="growl_notification"
 alias jc="junit_compile"
 alias je="junit_execute_tests"
-alias nautilus="open"
 #alias pjavac ="javac -cp .:prog1javalib.jar"
 #alias pjava ="java -cp .:prog1javalib.jar"
 #slimerjs
