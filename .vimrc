@@ -185,6 +185,7 @@ nnoremap <leader>rr :VtrSendCommandToRunner<cr>
 nnoremap <leader>cr :VtrSendCommandToRunner!   
 nnoremap <leader>nc :NextColorScheme<cr>  
 nnoremap <leader>pc :PrevColorScheme<cr>   
+nnoremap <leader>cs :colorscheme solarized<cr>   
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>l :set cursorline! cursorcolumn!<CR>
