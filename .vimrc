@@ -186,7 +186,10 @@ nnoremap <leader>cr :VtrSendCommandToRunner!
 nnoremap <leader>nc :NextColorScheme<cr>  
 nnoremap <leader>pc :PrevColorScheme<cr>   
 nnoremap <leader>cs :colorscheme solarized<cr>   
+
+"highlight the current cursor positon
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>l :set cursorline! cursorcolumn!<CR>
+"-----------
 let @q ='A"^[bi"^[2w'
