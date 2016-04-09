@@ -14,15 +14,18 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+
+" webapi-vim is need for gist-vim
+"Plugin 'mattn/webapi-vim'
+"Plugin 'mattn/gist-vim'
+"----------------------------
+
 Plugin 'tpope/vim-unimpaired'
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 "Plugin to make use python instead if vimscript
 "Plugin 'amoffat/snake'
 Plugin 'Valloric/YouCompleteMe'
@@ -38,12 +41,13 @@ Plugin 'matchit.zip'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'Anzumana/vim-numbertoggle'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle.git'
 Plugin 'othree/html5.vim'
 "if i should run terminal commands every often then this could make sense
-Plugin 'benmills/vimux'
-Plugin 'christoomey/vim-tmux-runner'
+"Plugin 'benmills/vimux'
+"Plugin 'christoomey/vim-tmux-runner'
 Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'xolox/vim-colorscheme-switcher'
 
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
@@ -182,3 +186,4 @@ nnoremap <leader>cr :VtrSendCommandToRunner!
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>l :set cursorline! cursorcolumn!<CR>
+let @q ='A"^[bi"^[2w'
