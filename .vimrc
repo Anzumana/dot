@@ -192,4 +192,4 @@ hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=whi
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>l :set cursorline! cursorcolumn!<CR>
 "-----------
-let @q ='A"^[bi"^[2w'
+let @q ='A"bi"2w'
