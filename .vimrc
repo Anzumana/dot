@@ -48,6 +48,7 @@ Plugin 'othree/html5.vim'
 "Plugin 'christoomey/vim-tmux-runner'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'mileszs/ack.vim'
 
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
@@ -192,4 +193,8 @@ hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=whi
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>l :set cursorline! cursorcolumn!<CR>
 "-----------
+nnoremap <leader>- :vertical resize -10<cr>   
+nnoremap <leader>= :vertical resize +10<cr>   
+nnoremap <leader>a :tabfirst <cr>   
+
 let @q ='A"bi"2w'
