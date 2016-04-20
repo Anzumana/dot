@@ -174,6 +174,7 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog' : 1,
       \ 'mail' : 1
 			\}
+
 nnoremap <leader>cp :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 
@@ -196,5 +197,10 @@ nnoremap <Leader>l :set cursorline! cursorcolumn!<CR>
 nnoremap <leader>- :vertical resize -10<cr>   
 nnoremap <leader>= :vertical resize +10<cr>   
 nnoremap <leader>a :tabfirst <cr>   
+set hlsearch
+nnoremap <leader>h :nohlsearch<cr>   
+nnoremap <leader>r :echo $MYVIMRC<cr>   
+
+
 
 let @q ='A"bi"2w'
