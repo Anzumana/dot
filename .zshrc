@@ -123,3 +123,6 @@ bindkey -v
 export PATH="$HOME/Dropbox/scripts:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# added by travis gem
+[ -f /Users/anzumana/.travis/travis.sh ] && source /Users/anzumana/.travis/travis.sh

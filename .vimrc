@@ -14,12 +14,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'burnettk/vim-angular'
 
 " webapi-vim is need for gist-vim
 "Plugin 'mattn/webapi-vim'
 "Plugin 'mattn/gist-vim'
 "----------------------------
 
+Plugin 'othree/javascript-libraries-syntax'
 Plugin 'tpope/vim-unimpaired'
 "Plugin 'majutsushi/tagbar'
 " Track the engine.
@@ -49,6 +51,7 @@ Plugin 'othree/html5.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'mileszs/ack.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
@@ -200,7 +203,10 @@ nnoremap <leader>a :tabfirst <cr>
 set hlsearch
 nnoremap <leader>h :nohlsearch<cr>   
 nnoremap <leader>r :echo $MYVIMRC<cr>   
+nnoremap <leader>s :Ack  
 
 
+let g:used_javascript_libs ='angularjs,angularui,angularuirouter'
 
 let @q ='A"bi"2w'
+let g:angular_filename_convention = 'camelcased'
