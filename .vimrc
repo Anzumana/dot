@@ -17,8 +17,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'burnettk/vim-angular'
 
 " webapi-vim is need for gist-vim
-"Plugin 'mattn/webapi-vim'
-"Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 "----------------------------
 
 Plugin 'othree/javascript-libraries-syntax'
@@ -92,7 +92,7 @@ set number
 set timeoutlen=150
 filetype plugin on
 filetype plugin indent on
-set autoindent
+set smartindent
 set background=dark
 colorscheme solarized
 "set guifont=Monaco:h14
@@ -178,7 +178,7 @@ let g:ycm_filetype_blacklist = {
       \ 'mail' : 1
 			\}
 
-nnoremap <leader>cp :CtrlP<cr>
+nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 
 nnoremap <leader>fr :VtrFocusRunner<cr>
