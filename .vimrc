@@ -126,7 +126,7 @@ let mapleader = " "
 let g:tern_show_argument_hints='on_hold'
 let g:tern_show_signature_in_pum=1
 "runtime macros/matchit.vim
-set scrolloff=45
+set scrolloff=9999999
 set showcmd
 nnoremap <leader>td :TernDoc<cr>
 nnoremap <leader>tb :TernDocBrowse<cr>
