@@ -139,6 +139,10 @@ nnoremap <leader>tr :TernRefs<cr>
 nnoremap <leader>tR :TernRename<cr>
 nnoremap <leader>tf :TernDef<cr>
 
+"Rezising vim splits 
+set winminheight=0 "shows single line for other splits if one is maximized
+map<leader>z <C-w>_
+map<leader>x <C-w>=
 "http://stackoverflow.com/questions/821902/disabling-swap-files-creation-in-vim 
 "
 set backupdir=~/.vim/backup//
