@@ -208,9 +208,8 @@ set hlsearch
 nnoremap <leader>h :nohlsearch<cr>   
 nnoremap <leader>r :echo $MYVIMRC<cr>   
 nnoremap <leader>s :Ack  
-
-
 let g:used_javascript_libs ='angularjs,angularui,angularuirouter'
 
+"place cursor on end of word to enclose in string quotes
 let @q ='A"bi"2w'
 let g:angular_filename_convention = 'camelcased'
