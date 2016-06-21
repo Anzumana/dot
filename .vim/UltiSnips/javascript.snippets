@@ -1,11 +1,8 @@
-snippet dddd
-sdsdsdsdsd
-endsnippet
 snippet anzu
 anzumana
 endsnippet
 # docstring
-snippet /**
+snippet doc
 /**
 	* ${0:description}
 	*
@@ -21,4 +18,10 @@ snippet $scope
 $scope.${1:functionName} = function(${2}) {
 	${3}
 }
+endsnippet
+
+snippet it
+it('${0:describe the test}', function() {
+	${1}
+});
 endsnippet
