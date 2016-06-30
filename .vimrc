@@ -47,11 +47,12 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle.git'
 Plugin 'othree/html5.vim'
 "if i should run terminal commands every often then this could make sense
 "Plugin 'benmills/vimux'
-"Plugin 'christoomey/vim-tmux-runner'
+Plugin 'christoomey/vim-tmux-runner'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'mileszs/ack.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'kshenoy/vim-signature'
 
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
@@ -97,7 +98,7 @@ set background=dark
 colorscheme solarized
 "set guifont=Monaco:h14
 set guifont=Hack\ Regular:h14
-set cole=1
+set cole=2
 "let g:javascript_conceal_function   = "ƒ"
 "let g:javascript_conceal_null       = "ø"
 "let g:javascript_conceal_this       = "@"
@@ -128,16 +129,16 @@ let g:tern_show_signature_in_pum=1
 "runtime macros/matchit.vim
 set scrolloff=9999999
 set showcmd
-nnoremap <leader>td :TernDoc<cr>
-nnoremap <leader>tb :TernDocBrowse<cr>
-nnoremap <leader>tt :TernType<cr>
-nnoremap <leader>td :TernDef<cr>
-nnoremap <leader>tpd :TernDefPreview<cr>
-nnoremap <leader>tsd :TernDefSplit<cr>
-nnoremap <leader>ttd :TernDefTab<cr>
-nnoremap <leader>tr :TernRefs<cr>
-nnoremap <leader>tR :TernRename<cr>
-nnoremap <leader>tf :TernDef<cr>
+"nnoremap <leader>td :TernDoc<cr>
+"nnoremap <leader>tb :TernDocBrowse<cr>
+"nnoremap <leader>tt :TernType<cr>
+"nnoremap <leader>td :TernDef<cr>
+"nnoremap <leader>tpd :TernDefPreview<cr>
+"nnoremap <leader>tsd :TernDefSplit<cr>
+"nnoremap <leader>ttd :TernDefTab<cr>
+"nnoremap <leader>tr :TernRefs<cr>
+"nnoremap <leader>tR :TernRename<cr>
+"nnoremap <leader>tf :TernDef<cr>
 
 "Rezising vim splits 
 set winminheight=0 "shows single line for other splits if one is maximized
@@ -191,6 +192,7 @@ nnoremap <leader>lr :VtrSendLinesToRunner<cr>
 nnoremap <leader>cdr :VtrSendCtrlD<cr>
 nnoremap <leader>ar :VtrAttachToPane<cr>
 nnoremap <leader>rr :VtrSendCommandToRunner<cr>
+nnoremap <leader>t :VtrSendCommandToRunner karma start<cr>
 nnoremap <leader>cr :VtrSendCommandToRunner!   
 nnoremap <leader>nc :NextColorScheme<cr>  
 nnoremap <leader>pc :PrevColorScheme<cr>   
