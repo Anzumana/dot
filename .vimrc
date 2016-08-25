@@ -54,6 +54,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'kshenoy/vim-signature'
 
+Plugin 'rizzatti/dash.vim'
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -209,9 +210,17 @@ nnoremap <leader>a :tabfirst <cr>
 set hlsearch
 nnoremap <leader>h :nohlsearch<cr>   
 nnoremap <leader>r :echo $MYVIMRC<cr>   
-nnoremap <leader>s :Ack  
+nnoremap <leader>s :Ack 
+nnoremap <leader>f :A<cr>
+nnoremap <leader>ncs :NextColorScheme<cr>
+nnoremap <leader>pcs :PrevColorScheme<cr>
+nnoremap <leader>so :colorscheme solarized<cr>
 let g:used_javascript_libs ='angularjs,angularui,angularuirouter'
 
 "place cursor on end of word to enclose in string quotes
 let @q ='A"bi"2w'
 let g:angular_filename_convention = 'camelcased'
+set foldmethod=indent
+set foldlevelstart=20
+let g:angular_source_directory = 'www/js/controllers/'
+let g:angular_test_directory = 'test/unit/'

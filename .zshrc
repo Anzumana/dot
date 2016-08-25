@@ -104,6 +104,7 @@ alias nn="growl_notification"
 alias jc="junit_compile"
 alias je="junit_execute_tests"
 alias simulator="open -n /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+alias simulator71="open -n /Applications/Xcode/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app"
 #alias pjavac ="javac -cp .:prog1javalib.jar"
 #alias pjava ="java -cp .:prog1javalib.jar"
 #slimerjs
