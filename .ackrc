@@ -97,6 +97,17 @@
 # http://www.haskell.org/cabal/users-guide/installing-packages.html
 --ignore-directory=is:.cabal-sandbox
 
+
+##########	Custom Files and Folders #########
+#	#transpiled folder 
+# http://www.haskell.org/cabal/users-guide/installing-packages.html
+--ignore-directory=is:transpiled
+--ignore-directory=is:www/lib
+--ignore-file=match:.*dev.js
+
+########## End Custom Files and Folders #########
+
+
 ### Files to ignore
 
 # Backup files
