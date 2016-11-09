@@ -193,7 +193,7 @@ nnoremap <leader>lr :VtrSendLinesToRunner<cr>
 nnoremap <leader>cdr :VtrSendCtrlD<cr>
 nnoremap <leader>ar :VtrAttachToPane<cr>
 nnoremap <leader>rr :VtrSendCommandToRunner<cr>
-nnoremap <leader>t :VtrSendCommandToRunner karma start<cr>
+nnoremap <leader>tt :VtrSendCommandToRunner karma start<cr>
 nnoremap <leader>cr :VtrSendCommandToRunner!   
 nnoremap <leader>nc :NextColorScheme<cr>  
 nnoremap <leader>pc :PrevColorScheme<cr>   
@@ -215,6 +215,7 @@ nnoremap <leader>f :A<cr>
 nnoremap <leader>ncs :NextColorScheme<cr>
 nnoremap <leader>pcs :PrevColorScheme<cr>
 nnoremap <leader>so :colorscheme solarized<cr>
+nnoremap <leader>t :tabnew <cr>
 let g:used_javascript_libs ='angularjs,angularui,angularuirouter'
 
 "place cursor on end of word to enclose in string quotes
@@ -224,3 +225,13 @@ set foldmethod=indent
 set foldlevelstart=20
 let g:angular_source_directory = 'www/js/controllers/'
 let g:angular_test_directory = 'test/unit/'
+"highlight word regardless of context
+"https://stackoverflow.com/questions/11709965
+augroup HiglightTODO
+    autocmd!
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO_ANZU', -1)
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'FIXME_ANZU', -1)
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'IMPROVE_ANZU', -1)
+augroup END
+
