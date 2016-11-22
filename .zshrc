@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin:/usr/local/git/bin:/Users/anzumana/.rvm/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin:/usr/local/git/bin:/Users/anzumana/.rvm/bin:/Library/TeX/Root/bin/x86_64-darwin/:/usr/local/lib/node_modules"
 # export MANPATH="/usr/local/man:$MANPATH"
 export ANDROID_HOME='/Users/anzumana/Library/Android/sdk/'
 export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
@@ -111,7 +111,16 @@ alias simulator71="open -n /Applications/Xcode/Xcode.app/Contents/Developer/Appl
 #slimerjs
 export SLIMERJSLAUNCHER="/Applications/Firefox.app/Contents/MacOS/firefox"
 eval "$(pyenv init -)"
-
+alias tech="pdflatex  -synctex=1 -interaction=nonstopmode --src-specials Arbeit.tex ; bibtex Arbeit ; makeindex Arbeit.nlo -s nomencl.ist -o Arbeit.nls ; pdflatex  -synctex=1 -interaction=nonstopmode --src-specials Arbeit.tex ; pdflatex  -synctex=1 -interaction=nonstopmode --src-specials Arbeit.tex ; makeindex Arbeit.nlo -s nomencl.ist -o Arbeit.nls ; pdflatex  -synctex=1 -interaction=nonstopmode --src-specials Arbeit.tex"
+alias clean="node clean.js"
+alias draft="clean ; scrivener_copy;scrivener_copy_rename; tech;"
+alias scrivener_copy_rename="node rename.js"
+alias scrivener_copy="cp ~/Dropbox/projects/seminar/draft/Inhalt/scrivener/Draft/*.tex ~/Dropbox/projects/seminar/draft/Inhalt/scrivener/copy;"
+alias server="sudo http-server ~/ -a localhost -p 80"
+#alias copy_rename =" (cd ~/Dropbox/projects/seminar/draft/Inhalt/scrivener/copy/; renamer --regex --find '(^..).*' --replace '$1.tex' *)"
+#alias renamer_replace ='renamer --regex --find '"'"'(^..).*'"'"' --replace '"'"'$1.tex'"'"' *'
+#alias renamer_replace ='renamer --regex --find '"'"'(^..).*'"'"' --replace '"'"'$1.tex'"'"' *'
+#alias renamer_help="renamer --help"
 
 source ~/.xsh
 
