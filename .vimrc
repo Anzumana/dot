@@ -220,6 +220,8 @@ let g:used_javascript_libs ='angularjs,angularui,angularuirouter'
 
 "place cursor on end of word to enclose in string quotes
 let @q ='A"bi"2w'
+"place console log around line
+let @l = 'Iconsole.log(A);'
 let g:angular_filename_convention = 'camelcased'
 set foldmethod=indent
 set foldlevelstart=20
