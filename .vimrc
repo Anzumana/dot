@@ -55,6 +55,9 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'kshenoy/vim-signature'
 
 Plugin 'rizzatti/dash.vim'
+Plugin 'clausreinke/typescript-tools.vim'
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'majutsushi/tagbar'
 "Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -237,3 +240,16 @@ augroup HiglightTODO
     autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'IMPROVE_ANZU', -1)
 augroup END
 
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+	\ }
