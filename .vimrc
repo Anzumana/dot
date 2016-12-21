@@ -99,6 +99,7 @@ filetype plugin on
 filetype plugin indent on
 set smartindent
 set background=dark
+"set background=light
 colorscheme solarized
 "set guifont=Monaco:h14
 set guifont=Hack\ Regular:h14
@@ -205,7 +206,7 @@ nnoremap <leader>cs :colorscheme solarized<cr>
 "highlight the current cursor positon
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-nnoremap <Leader>l :set cursorline! cursorcolumn!<CR>
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 "-----------
 nnoremap <leader>- :vertical resize -10<cr>   
 nnoremap <leader>= :vertical resize +10<cr>   
@@ -219,6 +220,7 @@ nnoremap <leader>ncs :NextColorScheme<cr>
 nnoremap <leader>pcs :PrevColorScheme<cr>
 nnoremap <leader>so :colorscheme solarized<cr>
 nnoremap <leader>t :tabnew <cr>
+nnoremap <leader>l :set nonumber <cr> :set norelativenumber <cr>
 let g:used_javascript_libs ='angularjs,angularui,angularuirouter'
 
 "place cursor on end of word to enclose in string quotes
@@ -240,16 +242,25 @@ augroup HiglightTODO
     autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'IMPROVE_ANZU', -1)
 augroup END
 
-let g:tagbar_type_typescript = {
-  \ 'ctagstype': 'typescript',
-  \ 'kinds': [
-    \ 'c:classes',
-    \ 'n:modules',
-    \ 'f:functions',
-    \ 'v:variables',
-    \ 'v:varlambdas',
-    \ 'm:members',
-    \ 'i:interfaces',
-    \ 'e:enums',
-  \ ]
-	\ }
+"let g:tagbar_type_typescript = {
+  "\ 'ctagstype': 'typescript',
+  "\ 'kinds': [
+    "\ 'c:classes',
+    "\ 'n:modules',
+    "\ 'f:functions',
+    "\ 'v:variables',
+    "\ 'v:varlambdas',
+    "\ 'm:members',
+    "\ 'i:interfaces',
+    "\ 'e:enums',
+  "\ ]
+	"\ }
+
+let g:tagbar_type_css = {
+			\ 'ctagstype' : 'css',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 's:selectors',
+        \ 'i:identities'
+    \ ]
+		\ }
