@@ -5,6 +5,7 @@ export ZSH=/Users/anzumana/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+ZSH_CUSTOM=$HOME/Dropbox/Mackup/oh-my-zsh-custom
 ZSH_THEME="anzumana"
 
 # Uncomment the following line to use case-sensitive completion.
