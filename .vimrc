@@ -15,6 +15,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'burnettk/vim-angular'
+Plugin 'takac/vim-hardtime'
 
 " webapi-vim is need for gist-vim
 Plugin 'mattn/webapi-vim'
@@ -132,7 +133,7 @@ let mapleader = " "
 let g:tern_show_argument_hints='on_hold'
 let g:tern_show_signature_in_pum=1
 "runtime macros/matchit.vim
-set scrolloff=9999999
+"set scrolloff=9999999
 set showcmd
 "nnoremap <leader>td :TernDoc<cr>
 "nnoremap <leader>tb :TernDocBrowse<cr>
@@ -235,32 +236,33 @@ let g:angular_test_directory = 'test/unit/'
 "highlight word regardless of context
 "https://stackoverflow.com/questions/11709965
 augroup HiglightTODO
-    autocmd!
-    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO_ANZU', -1)
-    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
-    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'FIXME_ANZU', -1)
-    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'IMPROVE_ANZU', -1)
+	autocmd!
+	autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO_ANZU', -1)
+	autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
+	autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'FIXME_ANZU', -1)
+	autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'IMPROVE_ANZU', -1)
 augroup END
 
 "let g:tagbar_type_typescript = {
-  "\ 'ctagstype': 'typescript',
-  "\ 'kinds': [
-    "\ 'c:classes',
-    "\ 'n:modules',
-    "\ 'f:functions',
-    "\ 'v:variables',
-    "\ 'v:varlambdas',
-    "\ 'm:members',
-    "\ 'i:interfaces',
-    "\ 'e:enums',
-  "\ ]
-	"\ }
+"\ 'ctagstype': 'typescript',
+"\ 'kinds': [
+	"\ 'c:classes',
+	"\ 'n:modules',
+	"\ 'f:functions',
+	"\ 'v:variables',
+	"\ 'v:varlambdas',
+	"\ 'm:members',
+	"\ 'i:interfaces',
+	"\ 'e:enums',
+"\ ]
+"\ }
 
 let g:tagbar_type_css = {
-			\ 'ctagstype' : 'css',
-    \ 'kinds'     : [
-        \ 'c:classes',
-        \ 's:selectors',
-        \ 'i:identities'
+		\ 'ctagstype' : 'css',
+	\ 'kinds'     : [
+			\ 'c:classes',
+			\ 's:selectors',
+			\ 'i:identities'
     \ ]
 		\ }
+let g:hardtime_default_on = 1
