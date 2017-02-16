@@ -4,15 +4,15 @@ endsnippet
 # docstring
 snippet doc
 /**
-	* ${0:description}
+	* ${1:description}
 	*
 */
 endsnippet
 snippet @par
-@param {${1:type}} ${2:name} ${0:description}
+@param {${1:type}} ${2:name} ${3:description}
 endsnippet
 snippet @ret
-@return {${1:type}} ${0:description}
+@return {${1:type}} ${2:description}
 endsnippet
 snippet $scope
 $scope.${1:functionName} = function(${2}) {
@@ -21,8 +21,8 @@ $scope.${1:functionName} = function(${2}) {
 endsnippet
 
 snippet it
-it('${0:describe the test}', function() {
-	${1}
+it('${1:describe the test}', function() {
+	${2}
 });
 endsnippet
 snippet todo
@@ -33,4 +33,24 @@ FIXME_ANZU
 endsnippet
 snippet impr
 IMPROVE_ANZU
+endsnippet
+snippet reducer
+
+export const ${1:name} = (state = [] , {type, payload}) => {
+	switch(type){
+		case ${2:NAME}:
+			return payload || state;
+		default:
+			return state;
+	}
+};
+endsnippet
+snippet cblock
+//---------------------------------------
+//	${1:name} 
+//---------------------------------------
+endsnippet
+
+snippet at
+,${1:name}:'${2:content}'
 endsnippet
