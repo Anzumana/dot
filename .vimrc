@@ -15,7 +15,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'burnettk/vim-angular'
-Plugin 'takac/vim-hardtime'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'Shougo/vimproc.vim'
+"Plugin 'takac/vim-hardtime'
 
 " webapi-vim is need for gist-vim
 Plugin 'mattn/webapi-vim'
@@ -24,7 +26,6 @@ Plugin 'mattn/gist-vim'
 
 Plugin 'othree/javascript-libraries-syntax'
 Plugin 'tpope/vim-unimpaired'
-"Plugin 'majutsushi/tagbar'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -222,6 +223,7 @@ nnoremap <leader>pcs :PrevColorScheme<cr>
 nnoremap <leader>so :colorscheme solarized<cr>
 nnoremap <leader>t :tabnew <cr>
 nnoremap <leader>l :set nonumber <cr> :set norelativenumber <cr>
+nnoremap <leader>o :TagbarToggle <cr> 
 let g:used_javascript_libs ='angularjs,angularui,angularuirouter'
 
 "place cursor on end of word to enclose in string quotes
@@ -265,4 +267,10 @@ let g:tagbar_type_css = {
 			\ 'i:identities'
     \ ]
 		\ }
-let g:hardtime_default_on = 1
+"let g:hardtime_default_on = 0
+:nmap <silent> <leader>d <Plug>DashSearch
+:nmap <silent> <leader>gd <Plug>DashGlobalSearch
+let g:dash_map = {                                                                                                                                                    
+		\ 'javascript' : ['javascript', 'angularjs','html'],
+		\ 'typescript' : ['javascript', 'angularts','html']                                                                                            
+		\ }
