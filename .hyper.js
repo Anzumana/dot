@@ -84,14 +84,13 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
 
-		//'hyperterm-almosy-solarized-dark',
-		'hyperterm-solarized-dark' ,
+		'hyper-solarized-vim',
 		//'hyper-solarized-light', 
+		//"hyper-cat",
 		'hyper-true-fullscreen',
 		'hyperlinks',
-		//'hyperpower',
+		'hyperpower',
 		'hyperfull',
-		//'hyperyellow'
 	],
 
   // in development, you can create a directory under
