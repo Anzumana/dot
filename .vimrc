@@ -274,3 +274,4 @@ let g:dash_map = {
 		\ 'javascript' : ['javascript', 'angularjs','html'],
 		\ 'typescript' : ['javascript', 'angularts','html']                                                                                            
 		\ }
+set iskeyword+=\-
