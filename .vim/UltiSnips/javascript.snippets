@@ -11,9 +11,11 @@ endsnippet
 snippet @par
 @param {${1:type}} ${2:name} ${3:description}
 endsnippet
+
 snippet @ret
 @return {${1:type}} ${2:description}
 endsnippet
+
 snippet $scope
 $scope.${1:functionName} = function(${2}) {
 	${3}
@@ -25,15 +27,19 @@ it('${1:describe the test}', function() {
 	${2}
 });
 endsnippet
+
 snippet todo
 TODO_ANZU
 endsnippet
+
 snippet fix
 FIXME_ANZU
 endsnippet
+
 snippet impr
 IMPROVE_ANZU
 endsnippet
+
 snippet reducer
 
 export const ${1:name} = (state = [] , {type, payload}) => {
@@ -53,4 +59,25 @@ endsnippet
 
 snippet at
 ,${1:name}:'${2:content}'
+endsnippet
+snippet const
+const ${1:name} = (${2:props}) => 
+	(
+	${3:html}
+	)
+endsnippet
+snippet class
+class ${1:name} extends React.Component {
+	render(){
+		return (
+			${2:html}
+		)
+	}
+}
+endsnippet
+snippet constructor
+constructor(){
+	super();
+	${1:state and functions}
+}
 endsnippet
