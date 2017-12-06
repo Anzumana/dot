@@ -1,4 +1,5 @@
 "old line to use pathogen instead of vundle
+set runtimepath=/usr/local/share/vim/vim80
 "execute pathogen#infect()
 "Start of file taken from https://github.com/VundleVim/Vundle.vim
 
@@ -12,11 +13,21 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+"Plugin 'Shougo/deoplete.nvim'
+"Plugin 'roxma/nvim-yarp'
+"Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'mattn/emmet-vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'burnettk/vim-angular'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'Shougo/vimproc.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Quramy/tsuquyomi'
+"Plugin 'shougo/deoplete.nvim'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'SirVer/ultisnips'
+"Plugin 'Shougo/vimproc.vim'
 "Plugin 'takac/vim-hardtime'
 
 " webapi-vim is need for gist-vim
@@ -27,15 +38,12 @@ Plugin 'mattn/gist-vim'
 Plugin 'othree/javascript-libraries-syntax'
 Plugin 'tpope/vim-unimpaired'
 " Track the engine.
-Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
+Plugin 'honza/vim-snippets'
 "Plugin to make use python instead if vimscript
 "Plugin 'amoffat/snake'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim'
 Plugin 'ap/vim-css-color'
-"Plugin 'mbadran/headlights'
+Plugin 'mbadran/headlights'
 "Plugin 'Shutnik/jshint2.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -49,22 +57,21 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle.git'
 Plugin 'othree/html5.vim'
 "if i should run terminal commands every often then this could make sense
 "Plugin 'benmills/vimux'
-Plugin 'christoomey/vim-tmux-runner'
+"Plugin 'christoomey/vim-tmux-runner'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-colorscheme-switcher'
+"Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'mileszs/ack.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'kshenoy/vim-signature'
+"Plugin 'kshenoy/vim-signature'
 
 Plugin 'rizzatti/dash.vim'
-Plugin 'clausreinke/typescript-tools.vim'
 Plugin 'HerringtonDarkholme/yats.vim'
+"Plugin 'clausreinke/typescript-tools.vim'
 Plugin 'majutsushi/tagbar'
-"Plugin 'Valloric/YouCompleteMe'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -156,12 +163,11 @@ map<leader>x <C-w>=
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-set pastetoggle=<F5>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>es :UltiSnipsEdit<CR>
 
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_error_symbol = 'E'
 "You can configure ag.vim to always start searching from your project root instead of the cwd
 let g:ag_working_path_mode="r"
@@ -232,7 +238,7 @@ let @q ='A"bi"2w'
 let @l = 'Iconsole.log(A);'
 let g:angular_filename_convention = 'camelcased'
 set foldmethod=indent
-set foldlevelstart=20
+set foldlevelstart=1
 let g:angular_source_directory = 'www/js/controllers/'
 let g:angular_test_directory = 'test/unit/'
 "highlight word regardless of context
@@ -245,19 +251,19 @@ augroup HiglightTODO
 	autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'IMPROVE_ANZU', -1)
 augroup END
 
-"let g:tagbar_type_typescript = {
-"\ 'ctagstype': 'typescript',
-"\ 'kinds': [
-	"\ 'c:classes',
-	"\ 'n:modules',
-	"\ 'f:functions',
-	"\ 'v:variables',
-	"\ 'v:varlambdas',
-	"\ 'm:members',
-	"\ 'i:interfaces',
-	"\ 'e:enums',
-"\ ]
-"\ }
+let g:tagbar_type_typescript = {
+\ 'ctagstype': 'typescript',
+\ 'kinds': [
+	\ 'c:classes',
+	\ 'n:modules',
+	\ 'f:functions',
+	\ 'v:variables',
+	\ 'v:varlambdas',
+	\ 'm:members',
+	\ 'i:interfaces',
+	\ 'e:enums',
+\ ]
+\ }
 
 let g:tagbar_type_css = {
 		\ 'ctagstype' : 'css',
@@ -275,3 +281,37 @@ let g:dash_map = {
 		\ 'typescript' : ['javascript', 'angularts','html']                                                                                            
 		\ }
 set iskeyword+=\-
+"au BufRead,BufNewFile *.ts  setlocal filetype=typescript
+if !exists("g:ycm_semantic_triggers")
+	let g:ycm_semantic_triggers = {
+				\	'typescript' : ['.']}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_single_quote_import = 1
+let g:tsuquyomi_javascript_support = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
+let g:ctrlp_custom_ignore = 'node_modules'
+call togglebg#map("<F1>")
+set pastetoggle=<F2>
+:nmap <leader>ii :set list!<CR> 
+:nmap <leader>i :TsuImport<CR> 
+set listchars=tab:▸\ ,eol:¬
+" enables us to use j and k to go up and down the omni completion list
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+:nmap <leader>ii :set list!<CR> 
+:nmap <leader>y "+y<CR> 
+:vmap <leader>y "+y<CR> 
+:nmap <leader>v :put +<CR> 
+:nmap <leader>k :Gstatus<CR> 
+:nmap <leader>w :Gdiff<CR> 
+set clipboard=unnamed
+" Use deoplete.
+ let g:deoplete#enable_at_startup = 1
+autocmd BufNewFile,BufRead *.less set filetype=less
+autocmd FileType less set omnifunc=csscomplete#CompleteCSS
+"http://vim.wikia.com/wiki/Show_fileencoding_and_bomb_in_the_status_line
+if has("statusline")
+ set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+endif
