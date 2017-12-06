@@ -1,5 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/anzumana/.oh-my-zsh
+export VIMRUNTIME=/usr/local/share/vim/vim80
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -57,7 +59,9 @@ plugins=(git)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin:/usr/local/git/bin:/Users/anzumana/.rvm/bin:/Library/TeX/Root/bin/x86_64-darwin/:/usr/local/lib/node_modules"
 # export MANPATH="/usr/local/man:$MANPATH"
 export ANDROID_HOME='/Users/anzumana/Library/Android/sdk/'
+export JAVA_HOME='/Library/Java/Home'
 export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+export PATH="$HOME/.fastlane/bin:$PATH"
 export JUNIT_HOME="/Users/anzumana/Dropbox/lib"
 export CLASSPATH="$JUNIT_HOME/junit-4.12.jar:.:/Users/anzumana/Dropbox/lib"
 
@@ -92,6 +96,8 @@ source $ZSH/oh-my-zsh.sh
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias zshrc="vim ~/.zshrc && reload"
 alias vimrc="vim ~/.vimrc"
+alias hyperrc="vim ~/.hyper.js"
+alias hostrc="sudo vim /etc/hosts"
 # My own
 alias prog="cd  ~/Dropbox/uni/ws2015/programmiern_1"
 alias javalib="cd  ~/Dropbox/lib/com/anzumana"
@@ -122,6 +128,10 @@ alias restartDns="sudo killall -HUP mDNSResponder"
 alias authors="branch-authors.pl"
 alias sshconfig="vim ~/.ssh/config"
 alias sshrc="vim ~/.ssh/config"
+alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
+alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
+alias mp3="youtube-dl --extract-audio --audio-format mp3"
+alias gtags='find . -type f -iregex ".*\.js$" -not -path "./node_modules/*" -exec jsctags {} -f \; | sed "/^$/d" | sort > tags'
 #alias copy_rename =" (cd ~/Dropbox/projects/seminar/draft/Inhalt/scrivener/copy/; renamer --regex --find '(^..).*' --replace '$1.tex' *)"
 #alias renamer_replace ='renamer --regex --find '"'"'(^..).*'"'"' --replace '"'"'$1.tex'"'"' *'
 #alias renamer_replace ='renamer --regex --find '"'"'(^..).*'"'"' --replace '"'"'$1.tex'"'"' *'
@@ -143,3 +153,6 @@ eval "$(jenv init -)"
 
 # added by travis gem
 [ -f /Users/anzumana/.travis/travis.sh ] && source /Users/anzumana/.travis/travis.sh
+
+export PATH="$HOME/.yarn/bin:$PATH"
+export DYLD_FORCE_FLAT_NAMESPACE=1
