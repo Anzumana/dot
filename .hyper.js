@@ -22,10 +22,11 @@ module.exports = {
     borderColor: '#333',
 
     // custom css to embed in the main window
-    css: '',
+    css: ' ',
 
     // custom css to embed in the terminal window
-    termCSS: '',
+		termCSS: '',
+		termCSS: 'x-row:last-of-type span{ background-color:#002b36!important; color:#268bd2!important;}',
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '',
@@ -86,7 +87,8 @@ module.exports = {
 
 		'hyper-solarized-vim',
 		//'hyper-solarized-light', 
-		//"hyper-cat",
+		//'hyper-cat',
+		//'hyper-command-gifs',
 		'hyper-true-fullscreen',
 		'hyperlinks',
 		'hyperpower',
@@ -96,5 +98,5 @@ module.exports = {
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: []
+	localPlugins: []
 };
