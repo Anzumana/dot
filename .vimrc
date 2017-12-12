@@ -298,8 +298,9 @@ set pastetoggle=<F2>
 :nmap <leader>i :TsuImport<CR> 
 set listchars=tab:▸\ ,eol:¬
 " enables us to use j and k to go up and down the omni completion list
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+" donable again with fix once python for youcompleteme works again
+"inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+"inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 :nmap <leader>ii :set list!<CR> 
 :nmap <leader>y "+y<CR> 
 :vmap <leader>y "+y<CR> 
