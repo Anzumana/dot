@@ -1,10 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/anzumana/.oh-my-zsh
+export VIMRUNTIME=/usr/local/share/vim/vim80
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+ZSH_CUSTOM=$HOME/Dropbox/Mackup/oh-my-zsh-custom
 ZSH_THEME="anzumana"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -53,10 +56,12 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin:/usr/local/git/bin:/Users/anzumana/.rvm/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin:/usr/local/git/bin:/Users/anzumana/.rvm/bin:/Library/TeX/Root/bin/x86_64-darwin/:/usr/local/lib/node_modules"
 # export MANPATH="/usr/local/man:$MANPATH"
 export ANDROID_HOME='/Users/anzumana/Library/Android/sdk/'
+export JAVA_HOME='/Library/Java/Home'
 export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+export PATH="$HOME/.fastlane/bin:$PATH"
 export JUNIT_HOME="/Users/anzumana/Dropbox/lib"
 export CLASSPATH="$JUNIT_HOME/junit-4.12.jar:.:/Users/anzumana/Dropbox/lib"
 
@@ -66,11 +71,12 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+	 export EDITOR='vim'
+ else
+	 #export EDITOR='mvim' #assuming this should be mac vim pref terminal vim over it so :)
+	 export EDITOR='vim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -90,6 +96,8 @@ source $ZSH/oh-my-zsh.sh
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias zshrc="vim ~/.zshrc && reload"
 alias vimrc="vim ~/.vimrc"
+alias hyperrc="vim ~/.hyper.js"
+alias hostrc="sudo vim /etc/hosts"
 # My own
 alias prog="cd  ~/Dropbox/uni/ws2015/programmiern_1"
 alias javalib="cd  ~/Dropbox/lib/com/anzumana"
@@ -110,7 +118,26 @@ alias simulator71="open -n /Applications/Xcode/Xcode.app/Contents/Developer/Appl
 #slimerjs
 export SLIMERJSLAUNCHER="/Applications/Firefox.app/Contents/MacOS/firefox"
 eval "$(pyenv init -)"
-
+alias tech="pdflatex  -synctex=1 -interaction=nonstopmode --src-specials Arbeit.tex ; bibtex Arbeit ; makeindex Arbeit.nlo -s nomencl.ist -o Arbeit.nls ; pdflatex  -synctex=1 -interaction=nonstopmode --src-specials Arbeit.tex ; pdflatex  -synctex=1 -interaction=nonstopmode --src-specials Arbeit.tex ; makeindex Arbeit.nlo -s nomencl.ist -o Arbeit.nls ; pdflatex  -synctex=1 -interaction=nonstopmode --src-specials Arbeit.tex"
+alias clean="node clean.js"
+alias draft="clean ; scrivener_copy;scrivener_copy_rename; tech;"
+alias scrivener_copy_rename="node rename.js"
+alias scrivener_copy="cp ~/Dropbox/projects/seminar/draft/Inhalt/scrivener/Draft/*.tex ~/Dropbox/projects/seminar/draft/Inhalt/scrivener/copy;"
+alias server="sudo http-server ~/ -a localhost -p 80"
+alias restartDns="sudo killall -HUP mDNSResponder"
+alias authors="branch-authors.pl"
+alias sshconfig="vim ~/.ssh/config"
+alias sshrc="vim ~/.ssh/config"
+alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
+alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
+alias mp3="youtube-dl --extract-audio --audio-format mp3"
+alias gtags='find . -type f -iregex ".*\.js$" -not -path "./node_modules/*" -exec jsctags {} -f \; | sed "/^$/d" | sort > tags'
+alias node7.6="~/Desktop/node-v7.6.0-darwin-x64/bin/node --debug-brk"
+alias mongodb_start="mongod --config /usr/local/etc/mongod.conf"
+#alias copy_rename =" (cd ~/Dropbox/projects/seminar/draft/Inhalt/scrivener/copy/; renamer --regex --find '(^..).*' --replace '$1.tex' *)"
+#alias renamer_replace ='renamer --regex --find '"'"'(^..).*'"'"' --replace '"'"'$1.tex'"'"' *'
+#alias renamer_replace ='renamer --regex --find '"'"'(^..).*'"'"' --replace '"'"'$1.tex'"'"' *'
+#alias renamer_help="renamer --help"
 
 source ~/.xsh
 
@@ -128,3 +155,6 @@ eval "$(jenv init -)"
 
 # added by travis gem
 [ -f /Users/anzumana/.travis/travis.sh ] && source /Users/anzumana/.travis/travis.sh
+
+export PATH="$HOME/.yarn/bin:$PATH"
+export DYLD_FORCE_FLAT_NAMESPACE=1
