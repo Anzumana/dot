@@ -2,3 +2,6 @@
 .DS_Store
 *.swp
 Session.vim
+.idea
+node_modules/
+tags
