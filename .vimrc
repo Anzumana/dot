@@ -1,5 +1,5 @@
 "old line to use pathogen instead of vundle
-set runtimepath=/usr/local/share/vim/vim80
+"set runtimepath=/usr/bin/vim
 "execute pathogen#infect()
 "Start of file taken from https://github.com/VundleVim/Vundle.vim
 
@@ -22,7 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'burnettk/vim-angular'
 Plugin 'mxw/vim-jsx'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'Quramy/tsuquyomi'
 "Plugin 'shougo/deoplete.nvim'
 Plugin 'marijnh/tern_for_vim'
@@ -31,11 +31,11 @@ Plugin 'SirVer/ultisnips'
 "Plugin 'takac/vim-hardtime'
 
 " webapi-vim is need for gist-vim
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+"Plugin 'mattn/webapi-vim'
+"Plugin 'mattn/gist-vim'
 "----------------------------
 
-Plugin 'othree/javascript-libraries-syntax'
+"Plugin 'othree/javascript-libraries-syntax'
 Plugin 'tpope/vim-unimpaired'
 " Track the engine.
 " Snippets are separated from the engine. Add this if you want them:
@@ -43,12 +43,12 @@ Plugin 'honza/vim-snippets'
 "Plugin to make use python instead if vimscript
 "Plugin 'amoffat/snake'
 Plugin 'ap/vim-css-color'
-Plugin 'mbadran/headlights'
+"Plugin 'mbadran/headlights'
 "Plugin 'Shutnik/jshint2.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 Plugin 'matchit.zip'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
@@ -100,16 +100,16 @@ call vundle#end()            " required
 " Put your non-Plugin stuff after this line
 
 " End of vimrc taken from Vundle Readme
-syntax on 
+"syntax on 
 set relativenumber
 set number
 set timeoutlen=150
 filetype plugin on
 filetype plugin indent on
 set smartindent
-set background=dark
+"set background=dark
 "set background=light
-colorscheme solarized
+"colorscheme solarized
 "set guifont=Monaco:h14
 set guifont=Hack\ Regular:h14
 set cole=2
@@ -141,7 +141,7 @@ let mapleader = " "
 let g:tern_show_argument_hints='on_hold'
 let g:tern_show_signature_in_pum=1
 "runtime macros/matchit.vim
-"set scrolloff=9999999
+"set scrolloff=20
 set showcmd
 "nnoremap <leader>td :TernDoc<cr>
 "nnoremap <leader>tb :TernDocBrowse<cr>
@@ -292,7 +292,7 @@ let g:tsuquyomi_single_quote_import = 1
 let g:tsuquyomi_javascript_support = 1
 autocmd FileType typescript setlocal completeopt+=menu,preview
 let g:ctrlp_custom_ignore = 'node_modules'
-call togglebg#map("<F1>")
+"call togglebg#map("<F1>")
 set pastetoggle=<F2>
 :nmap <leader>ii :set list!<CR> 
 :nmap <leader>i :TsuImport<CR> 
@@ -306,7 +306,7 @@ set listchars=tab:▸\ ,eol:¬
 :vmap <leader>y "+y<CR> 
 :nmap <leader>v :put +<CR> 
 :nmap <leader>k :Gstatus<CR> 
-:nmap <leader>w :Gdiff<CR> 
+:nmap <leader>w :Gvdiff<CR> 
 set clipboard=unnamed
 " Use deoplete.
  let g:deoplete#enable_at_startup = 1
@@ -316,3 +316,6 @@ autocmd FileType less set omnifunc=csscomplete#CompleteCSS
 if has("statusline")
  set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 endif
+" ^G is showing for nodes in derdtree
+" https://github.com/preservim/nerdtree/issues/928
+let g:NERDTreeNodeDelimiter = "\u00a0"
