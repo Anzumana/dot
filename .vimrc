@@ -37,6 +37,8 @@ Plugin 'SirVer/ultisnips'
 
 "Plugin 'othree/javascript-libraries-syntax'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'shumphrey/fugitive-gitlab.vim'
+let g:fugitive_gitlab_domains = [ 'ssh://git@gitlab.vier.services:2222/' ,'https://gitlab.vier.ai/' ]
 " Track the engine.
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
@@ -141,7 +143,7 @@ let mapleader = " "
 let g:tern_show_argument_hints='on_hold'
 let g:tern_show_signature_in_pum=1
 "runtime macros/matchit.vim
-"set scrolloff=20
+set scrolloff=20
 set showcmd
 "nnoremap <leader>td :TernDoc<cr>
 "nnoremap <leader>tb :TernDocBrowse<cr>
@@ -319,3 +321,11 @@ endif
 " ^G is showing for nodes in derdtree
 " https://github.com/preservim/nerdtree/issues/928
 let g:NERDTreeNodeDelimiter = "\u00a0"
+hi DiffAdd      ctermfg=NONE          ctermbg=Green
+hi DiffChange   ctermfg=NONE          ctermbg=NONE
+hi DiffDelete   ctermfg=Black     ctermbg=Red
+hi DiffText     ctermfg=White        ctermbg=Red
+"https://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim
+nnoremap Y "+y
+vnoremap Y "+y
+nnoremap yY ^"+y$
