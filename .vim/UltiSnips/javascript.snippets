@@ -1,19 +1,33 @@
-snippet anzu
-anzumana
+snippet <P
+<Provider store={store}>
+</Provider>,
+endsnippet
+snippet ir
+import React from 'react';
+endsnippet
+snippet ird
+import ReactDOM from 'react-dom';
 endsnippet
 # docstring
 snippet doc
 /**
-	* ${0:description}
+	* ${1:description}
 	*
 */
 endsnippet
+snippet test
+test('description', () => {
+  expect(result).toBe(data);
+});
+endsnippet
 snippet @par
-@param {${1:type}} ${2:name} ${0:description}
+@param {${1:type}} ${2:name} ${3:description}
 endsnippet
+
 snippet @ret
-@return {${1:type}} ${0:description}
+@return {${1:type}} ${2:description}
 endsnippet
+
 snippet $scope
 $scope.${1:functionName} = function(${2}) {
 	${3}
@@ -21,7 +35,150 @@ $scope.${1:functionName} = function(${2}) {
 endsnippet
 
 snippet it
-it('${0:describe the test}', function() {
-	${1}
+it('${1:describe the test}', function() {
+	${2}
 });
 endsnippet
+
+snippet todo
+TODO_ANZU
+endsnippet
+
+snippet fix
+FIXME_ANZU
+endsnippet
+
+snippet impr
+IMPROVE_ANZU
+endsnippet
+
+snippet cblock
+//---------------------------------------
+//	${1:name} 
+//---------------------------------------
+endsnippet
+
+snippet at
+,${1:name}:'${2:content}'
+endsnippet
+snippet const
+const ${1:name} = (${2:props}) => 
+	(
+	${3:html}
+	)
+endsnippet
+snippet class
+class ${1:name} extends React.Component {
+	render(){
+		return (
+			<div>
+				${2:html}
+			</div>
+		)
+	}
+}
+endsnippet
+snippet constructor
+constructor(){
+	super();
+	${1:state and functions}
+}
+endsnippet
+snippet cwm
+componentWillMount(){
+${0}
+}
+endsnippet
+snippet cdm
+componentDidMount(){
+${0}
+}
+endsnippet
+snippet cwu
+componentWillUnMount(){
+${0}
+}
+endsnippet
+snippet switch
+switch(${1:action.type}){
+	default:
+		${2: state;}
+}
+endsnippet
+snippet afn
+() => {
+}
+endsnippet
+snippet ts
+: string
+endsnippet
+snippet to
+: Object
+endsnippet
+snippet tb
+: boolean
+endsnippet
+snippet tn
+: number
+endsnippet
+snippet ic
+import { connect } from 'react-redux';
+endsnippet
+snippet ip
+import { Provider } from 'react-redux';
+endsnippet
+snippet ed
+export default ${0: App}
+endsnippet
+snippet ex
+export default ${0:App};
+endsnippet
+snippet prop
+${1:propname} ={${2:propname}}
+endsnippet
+snippet reducer
+const initalState = null;
+
+export default function(state = initalState , action){
+	switch(action.type){
+		case 'test':
+			return action.payload || state;
+		default:
+			return state;
+	}
+};
+endsnippet
+snippet tttttt
+endsnippet
+snippet navios
+<NavigatorIOS
+	initialRoute ={{
+		component:${0: CompoenntName}
+		title:'test title'
+}}/>
+endsnippet
+snippet <a
+<a href="${1:url}">${2:linkName}</a>
+endsnippet
+
+snippet express
+const express = require('express');
+const app = express();
+endsnippet
+snippet port
+const port = 3000;
+app.listen(port, () => {
+	console.log('listen on port '+ port);
+});
+endsnippet
+snippet get
+app.get('/${1:routeName}' , (req, res) => {
+	const data = { 'test':'hello word'};
+	res.status(200).json(data);
+});
+endsnippet
+
+snippet ip
+import { Provider } from 'react-redux';
+endsnippet
+

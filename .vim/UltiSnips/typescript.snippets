@@ -1,0 +1,95 @@
+snippet anzu
+anzumana
+endsnippet
+# docstring
+snippet doc
+/**
+ * ${1:description}
+ *
+ */
+endsnippet
+snippet @par
+@param {${1:type}} ${2:name} ${3:description}
+endsnippet
+snippet @ret
+@return {${1:type}} ${2:description}
+endsnippet
+snippet $scope
+$scope.${1:functionName} = function(${2}) {
+	${3}
+}
+endsnippet
+
+snippet it
+it('${1:describe the test}', function() {
+	${2}
+});
+endsnippet
+snippet todo
+TODO_ANZU
+endsnippet
+snippet fix
+FIXME_ANZU
+endsnippet
+snippet impr
+IMPROVE_ANZU
+endsnippet
+snippet reducer
+
+export const ${1:name} = (state = [] , {type, payload}) => {
+	switch(type){
+		case ${2:NAME}:
+			return payload || state;
+		default:
+			return state;
+	}
+};
+endsnippet
+snippet cblock
+//---------------------------------------
+//	${1:name} 
+//---------------------------------------
+endsnippet
+
+snippet at
+,${1:name}:'${2:content}'
+endsnippet
+snippet dd
+sd
+endsnippet
+snippet e2e
+it('${1:description}', () => {
+	// arrange
+
+	// act
+
+	// assert
+});
+
+endsnippet
+snippet const
+export default () => (
+${0:html}
+);
+endsnippet
+snippet ir
+import * as React from 'react';
+endsnippet
+snippet storie
+import { Story } from '@storybook/angular/types-6-0';
+import { TestComponent} from './test.component';
+
+export default {
+	title: 'Atomic/TestComponent',
+	component: TestComponent
+};
+
+const Template: Story<TestComponent> = (args: TestComponent) => ({
+	component: TestComponent,
+	props: {
+		...args
+	}
+});
+
+export const Default= Template.bind({});
+endsnippet
