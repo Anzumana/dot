@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/anzumana.sander/.oh-my-zsh
+export ZSH=/Users/anzumana/.oh-my-zsh
 export VIMRUNTIME=/usr/local/share/vim/vim80
 export PATH="/usr/local/opt/python/libexec/bin$PATH"
 
@@ -56,14 +56,14 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin:/usr/local/git/bin:/Users/anzumana.sander/.rvm/bin:/Library/TeX/Root/bin/x86_64-darwin/:/usr/local/lib/node_modules:/Users/anzumana.sander/bin/"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin:/usr/local/git/bin:/Users/anzumana/.rvm/bin:/Library/TeX/Root/bin/x86_64-darwin/:/usr/local/lib/node_modules:/Users/anzumana/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
-export ANDROID_HOME='/Users/anzumana.sander/Library/Android/sdk/'
+export ANDROID_HOME='/Users/anzumana/Library/Android/sdk/'
 export JAVA_HOME='/Library/Java/Home'
 export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 export PATH="$HOME/.fastlane/bin:$PATH"
-export JUNIT_HOME="/Users/anzumana.sander/Dropbox/lib"
-export CLASSPATH="$JUNIT_HOME/junit-4.12.jar:.:/Users/anzumana.sander/Dropbox/lib"
+export JUNIT_HOME="/Users/anzumana/Dropbox/lib"
+export CLASSPATH="$JUNIT_HOME/junit-4.12.jar:.:/Users/anzumana/Dropbox/lib"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,11 +100,11 @@ alias hyperrc="vim ~/.hyper.js"
 alias hostrc="sudo vim /etc/hosts"
 # My own
 alias prog="cd  ~/Dropbox/uni/ws2015/programmiern_1"
-alias javalib="cd  ~/Dropbox/lib/com/anzumana.sander"
+alias javalib="cd  ~/Dropbox/lib/com/anzumana"
 alias javahacking="cd  ~/Dropbox/hacking/java"
 alias hide="defaults write com.apple.finder AppleShowAllFiles NO"
 alias show="defaults write com.apple.finder AppleShowAllFiles YES"
-alias sc2="/Users/anzumana.sander/Library/Application\ Support/Blizzard/StarCraft\ II"
+alias sc2="/Users/anzumana/Library/Application\ Support/Blizzard/StarCraft\ II"
 alias yd="youtube-dl -f mp4 "
 alias mume="telnet mume.org 4242"
 alias md="perl  ~/Dropbox/scripts/external/Markdown_1.0.1/Markdown.pl --html4tags "
@@ -159,7 +159,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 # added by travis gem
-[ -f /Users/anzumana.sander/.travis/travis.sh ] && source /Users/anzumana.sander/.travis/travis.sh
+[ -f /Users/anzumana/.travis/travis.sh ] && source /Users/anzumana/.travis/travis.sh
 
 export PATH="$HOME/.yarn/bin:$PATH"
 export DYLD_FORCE_FLAT_NAMESPACE=1
