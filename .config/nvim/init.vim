@@ -5,15 +5,20 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'github/copilot.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'altercation/vim-colors-solarized'
+Plug 'christoomey/vim-tmux-navigator'
+
 
 " Find files using Telescope command-line sugar.
-nnoremap <silent>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>;ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Using Lua functions
-nnoremap <silent>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <silent>;ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
@@ -24,12 +29,13 @@ call plug#end()
 nnoremap <BS> <C-^>
 
 set relativenumber
-
+set clipboard=unnamed
+let mapleader= " " 
 
 " mapi
 " '
-nmap <silent> df <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
-nmap <silent> sd <cmd> lua require("harpoon.mark").add_file()<cr>
+nnoremap <silent> ;df <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <silent> ;sf <cmd> lua require("harpoon.mark").add_file()<cr>
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -197,3 +203,47 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" tabstop:          Width of tab character
+" softtabstop:      Fine tunes the amount of white space to be added
+" shiftwidth        Determines the amount of whitespace to add in normal mode
+" expandtab:        When this option is enabled, vi will use spaces instead of tabs
+set tabstop     =2
+set softtabstop =2
+set shiftwidth  =2
+set expandtab
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<leader>f'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<leader>b'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+nnoremap <leader>vs :vsp<CR>
+nnoremap <leader>hs :sp<CR>
+nnoremap <leader>ks :exit<CR>
+
+" navigate up from fugitive
+nnoremap .. :edit %:h<cr>
+nnoremap <leader>w :Gdiffsplit<cr>
+nnoremap <leader>k :Git<cr>
+:set diffopt+=vertical
+
+set foldmethod=indent
+set foldlevelstart=20
+colorscheme solarized
+
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+nnoremap <leader>p <cmd>Prettier<cr>
+
