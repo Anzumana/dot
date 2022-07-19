@@ -9,19 +9,20 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdtree'
 
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>;ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <silent>;ff <cmd>Telescope find_files<cr>
+nnoremap <leader>;fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>;fb <cmd>Telescope buffers<cr>
+nnoremap <leader>;fh <cmd>Telescope help_tags<cr>
 
 " Using Lua functions
 nnoremap <silent>;ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>;fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>;fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>;fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " Use release branch (recommend)
 call plug#end()
 " change mapping for alternate file  
@@ -34,9 +35,12 @@ let mapleader= " "
 
 " mapi
 " '
-nnoremap <silent> ;df <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
-nnoremap <silent> ;sf <cmd> lua require("harpoon.mark").add_file()<cr>
-
+nnoremap <silent>;df <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <silent>;sf <cmd>lua require("harpoon.mark").add_file()<cr>
+nnoremap <silent>;r <cmd>lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <silent>;e <cmd>lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <silent>;c <cmd>lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <silent>;v <cmd>lua require("harpoon.ui").nav_file(4)<cr>
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
@@ -61,7 +65,7 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
+  "" Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
   set signcolumn=yes
@@ -91,7 +95,7 @@ endif
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -125,13 +129,13 @@ nmap <silent>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+"augroup mygroup
+""autocmd!
+"""" Setup formatexpr specified filetype(s).
+""autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+"""" Update signature help on jump placeholder.
+""autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
@@ -246,4 +250,11 @@ colorscheme solarized
 
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 nnoremap <leader>p <cmd>Prettier<cr>
+
+"switch back to current file and closes fugitive buffer
+nnoremap <Leader>x <c-w>h<c-w>c
+
+set scroll=0
+map <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>h :nohlsearch<cr>   
 

@@ -1,0 +1,243 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+
+
+snippet <P
+<Provider store={store}>
+</Provider>,
+endsnippet
+snippet ir
+import React from 'react';
+endsnippet
+snippet ird
+import ReactDOM from 'react-dom';
+endsnippet
+# docstring
+snippet doc
+/**
+	* ${1:description}
+	*
+*/
+endsnippet
+snippet test
+test('description', () => {
+  expect(result).toBe(data);
+});
+endsnippet
+snippet @par
+@param {${1:type}} ${2:name} ${3:description}
+endsnippet
+
+snippet @ret
+@return {${1:type}} ${2:description}
+endsnippet
+
+snippet $scope
+$scope.${1:functionName} = function(${2}) {
+	${3}
+}
+endsnippet
+
+snippet it
+it('${1:describe the test}', function() {
+	${2}
+});
+endsnippet
+
+snippet todo
+TODO_ANZU
+endsnippet
+
+snippet fix
+FIXME_ANZU
+endsnippet
+
+snippet impr
+IMPROVE_ANZU
+endsnippet
+
+snippet cblock
+//---------------------------------------
+//	${1:name} 
+//---------------------------------------
+endsnippet
+
+snippet at
+,${1:name}:'${2:content}'
+endsnippet
+snippet const
+const ${1:name} = (${2:props}) => 
+	(
+	${3:html}
+	)
+endsnippet
+snippet class
+class ${1:name} extends React.Component {
+	render(){
+		return (
+			<div>
+				${2:html}
+			</div>
+		)
+	}
+}
+endsnippet
+snippet constructor
+constructor(){
+	super();
+	${1:state and functions}
+}
+endsnippet
+snippet cwm
+componentWillMount(){
+${0}
+}
+endsnippet
+snippet cdm
+componentDidMount(){
+${0}
+}
+endsnippet
+snippet cwu
+componentWillUnMount(){
+${0}
+}
+endsnippet
+snippet switch
+switch(${1:action.type}){
+	default:
+		${2: state;}
+}
+endsnippet
+snippet afn
+() => {
+}
+endsnippet
+snippet ts
+: string
+endsnippet
+snippet to
+: Object
+endsnippet
+snippet tb
+: boolean
+endsnippet
+snippet tn
+: number
+endsnippet
+snippet ic
+import { connect } from 'react-redux';
+endsnippet
+snippet ip
+import { Provider } from 'react-redux';
+endsnippet
+snippet export
+export default ${0: App}
+endsnippet
+snippet ed
+export default ${0: App}
+endsnippet
+snippet ex
+export default ${0:App};
+endsnippet
+snippet prop
+${1:propname} ={${2:propname}}
+endsnippet
+snippet reducer
+const initalState = null;
+
+export default function(state = initalState , action){
+	switch(action.type){
+		case 'test':
+			return action.payload || state;
+		default:
+			return state;
+	}
+};
+endsnippet
+snippet tttttt
+endsnippet
+snippet navios
+<NavigatorIOS
+	initialRoute ={{
+		component:${0: CompoenntName}
+		title:'test title'
+}}/>
+endsnippet
+snippet <a
+<a href="${1:url}">${2:linkName}</a>
+endsnippet
+
+snippet express
+const express = require('express');
+const app = express();
+endsnippet
+snippet port
+const port = 3000;
+app.listen(port, () => {
+	console.log('listen on port '+ port);
+});
+endsnippet
+snippet get
+app.get('/${1:routeName}' , (req, res) => {
+	const data = { 'test':'hello word'};
+	res.status(200).json(data);
+});
+endsnippet
+snippet log
+console.log(${0:value});
+endsnippet
+snippet req
+require('${0:name}')
+endsnippet
+
+snippet <i
+<i className='${0:className}'/>
+endsnippet
+snippet static
+static propTypes = {
+${1:name}: ${2:type}
+}
+endsnippet
+snippet img
+<img src="${0:url}" alt=""
+endsnippet
+snippet ipt
+import PropTypes from 'prop-types';
+endsnippet
+snippet ptfr
+PropTypes.func.isRequired
+endsnippet
+snippet Link
+<Link to='${1:href}'>${2:text}</Link>
+endsnippet
+snippet ptair
+PropTypes.array.isRequired
+endsnippet
+snippet ptoir
+PropTypes.object.isRequired
+endsnippet

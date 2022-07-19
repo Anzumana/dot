@@ -1,0 +1,137 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+
+snippet anzu
+anzumana
+endsnippet
+# docstring
+snippet doc
+/**
+ * ${1:description}
+ *
+ */
+endsnippet
+snippet @par
+@param {${1:type}} ${2:name} ${3:description}
+endsnippet
+snippet @ret
+@return {${1:type}} ${2:description}
+endsnippet
+snippet $scope
+$scope.${1:functionName} = function(${2}) {
+	${3}
+}
+endsnippet
+
+snippet it
+it('${1:describe the test}', function() {
+	${2}
+});
+endsnippet
+snippet todo
+TODO_ANZU
+endsnippet
+snippet fix
+FIXME_ANZU
+endsnippet
+snippet impr
+IMPROVE_ANZU
+endsnippet
+snippet reducer
+
+export const ${1:name} = (state = [] , {type, payload}) => {
+	switch(type){
+		case ${2:NAME}:
+			return payload || state;
+		default:
+			return state;
+	}
+};
+endsnippet
+snippet cblock
+//---------------------------------------
+//	${1:name} 
+//---------------------------------------
+endsnippet
+
+snippet at
+,${1:name}:'${2:content}'
+endsnippet
+snippet dd
+sd
+endsnippet
+snippet e2e
+it('${1:description}', () => {
+	// arrange
+
+	// act
+
+	// assert
+});
+
+endsnippet
+snippet const
+export default () => (
+${0:html}
+);
+endsnippet
+snippet ir
+import * as React from 'react';
+endsnippet
+snippet storie
+import { Story } from '@storybook/angular/types-6-0';
+import { TestComponent} from './test.component';
+
+export default {
+	title: 'Atomic/TestComponent',
+	component: TestComponent
+};
+
+const Template: Story<TestComponent> = (args: TestComponent) => ({
+	component: TestComponent,
+	props: {
+		...args
+	}
+});
+
+export const Default= Template.bind({});
+endsnippet
+
+snippet n
+: number
+endsnippet
+snippet s
+: string
+endsnippet
+snippet b
+: boolean
+endsnippet
+snippet fn
+function ${1:name}(${2:args}) {
+	${3}
+}
+endsnippet
