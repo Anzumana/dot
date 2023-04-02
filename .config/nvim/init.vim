@@ -1,5 +1,12 @@
-call plug#begin()
+set nocompatible
+filetype plugin on
+syntax on
 
+call plug#begin()
+"signature help does not work yet would need native lsp
+Plug 'vimwiki/vimwiki'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'keith/swift.vim'
 Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
 Plug 'ThePrimeagen/harpoon'
 Plug 'nvim-telescope/telescope.nvim'
@@ -9,12 +16,21 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' 
+Plug 'junegunn/goyo.vim'
+Plug 'will133/vim-dirdiff'
+Plug 'mileszs/ack.vim'
+"Plug 'nvim-treesitter/nvim-treesitter'
+call plug#end()
+"  vim wiki 
+let g:vimwiki_list = [{'path': '~/Dropbox/nvalt/', 'syntax': 'markdown', 'ext': '.md', 'path_html':'~/Dropbox/html/'}]
+let g:vimwiki_folding='custom'
+
 
 
 " Find files using Telescope command-line sugar.
-nnoremap <silent>;ff <cmd>Telescope find_files<cr>
-nnoremap <leader>;fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>;ff <cmd>Telescope find_files<cr>
+nnoremap <silent>;fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>;fb <cmd>Telescope buffers<cr>
 nnoremap <leader>;fh <cmd>Telescope help_tags<cr>
 
@@ -25,9 +41,10 @@ nnoremap <leader>;fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>;fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " Use release branch (recommend)
 call plug#end()
-" change mapping for alternate file  
-" https://vi.stackexchange.com/questions/6340/changing-between-the-active-buffer-and-the-alternate-buffer/6342#6342?newreg=9d3021c35a8a4d20b5d1eb5a214222e4
-nnoremap <BS> <C-^>
+" change mapping for alternate file  " https://vi.stackexchange.com/questions/6340/changing-between-the-active-buffer-and-the-alternate-buffer/6342#6342?newreg=9d3021c35a8a4d20b5d1eb5a214222e4
+"nnoremap <BS> <C-^>
+"https://stackoverflow.com/questions/11659618/altbackspace-to-delete-words-in-vim
+imap <Esc><BS> <C-w>
 
 set relativenumber
 set clipboard=unnamed
@@ -103,19 +120,19 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition) zz
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
+nnoremap <silent> I :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    call feedkeys('K', 'in')
+    call feedkeys('I', 'in')
   endif
 endfunction
 
@@ -164,11 +181,11 @@ omap ac <Plug>(coc-classobj-a)
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  nnoremap <silent><nowait><expr> <C-t> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  inoremap <silent><nowait><expr> <C-t> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  vnoremap <silent><nowait><expr> <C-t> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
 " Use CTRL-S for selections ranges.
@@ -239,22 +256,58 @@ nnoremap <leader>hs :sp<CR>
 nnoremap <leader>ks :exit<CR>
 
 " navigate up from fugitive
-nnoremap .. :edit %:h<cr>
+"nnoremap .. :edit %:h<cr>
 nnoremap <leader>w :Gdiffsplit<cr>
 nnoremap <leader>k :Git<cr>
-:set diffopt+=vertical
+"set diffopt+=vertical
+set diffopt+=horizontal
 
 set foldmethod=indent
 set foldlevelstart=20
 colorscheme solarized
-
+set background=dark
+hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi PmenuSel ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 nnoremap <leader>p <cmd>Prettier<cr>
 
 "switch back to current file and closes fugitive buffer
 nnoremap <Leader>x <c-w>h<c-w>c
 
-set scroll=0
 map <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>h :nohlsearch<cr>   
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+" Map Ctrl-Backspace to delete the previous word in insert mode.
+inoremap <BS> <C-W>
+noremap <BS> <C-^>
+nnoremap <S-j> 15j<cr>zz
+nnoremap <S-k> 17k<cr>zz
 
+autocmd  BufRead,BufNewfile *.cds setfiletype cds
+autocmd  BufRead,BufNewfile *.bo setfiletype ob
+autocmd  BufRead,BufNewfile *.txt setfiletype txt
+nnoremap <leader>- :vertical resize -10<cr>   
+nnoremap <leader>= :vertical resize +10<cr>   
+nnoremap <leader>j :join <cr>   
+nnoremap <leader>es :CocCommand snippets.editSnippets <cr>   
+"h highlights-args
+au TextYankPost * silent! lua vim.highlight.on_yank()
+"set scrolloff=9999999
+nnoremap <silent>gh :0Gclog<cr>   
+"https://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
+nmap cp :let @+ =expand("%")<cr>
+let g:python3_host_prog="/usr/bin/python3"
+map <Down> <C-d>zz
+nnoremap <C-d> <C-d>zz
+set scroll=15
+nnoremap n nzzzn
+nnoremap N Nzzzn
+nnoremap <leader>s :Ack TODO_ANZUMANA <cr>
+nnoremap <leader>m :CocCommand document.toggleInlayHint<cr>
+set number
+lua require('init')
